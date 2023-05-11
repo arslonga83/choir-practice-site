@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LGPC Sanctuary Choir</title>
+  </head>
+  <body class="bg-dark pt-3 mt-5" data-bs-spy="scroll" data-bs-target="#navList">
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary fixed-top">
+      <div class="container">
+        <h1 class="navbar-brand fw-bolder fs-1">LGPC Sanctuary Choir</h1>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navItems">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navItems">
+          <ul class="navbar-nav ms-auto fw-bold" id="navList">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#audio" class="nav-link">Audio</a>
+            </li>
+            <li class="nav-item">
+              <a href="#youtube" class="nav-link">Youtube</a>
+            </li>
+            <li class="nav-item">
+              <a href="#schedule" class="nav-link">Schedule</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <main>
+
+    <section id="home" class="vh-100">
+     <!-- just a background image here -->
+    </section>
+
+      <!-- 4 SAMPLE CARDS WITH AUDIO PLAYER -->
+
+      <section>
+        <div class="container d-lg-flex flex-wrap justify-content-around mb-5 mt-5" id="audio">
+          <h1 class="text-white text-center fw-bolder col-12">4 Sample Cards with Audio Only</h1>
+          <!-- RECORDINGS CARDS RENDER HERE -->
+        </div>
+        
+        <div class=" container text-center py-5">
+          <a href="https://www.dropbox.com/sh/wzqsk5p1ri8tpt0/AACYuzgCavb1Lmqu-_aXsrC1a?dl=0" class="btn btn-primary btn-lg text-white d-block mb-5 w-50 mx-auto" target="_blank">Dropbox recordings</a>
+          <a class="btn btn-primary btn-lg text-white d-block w-50 mx-auto" href="https://www.dropbox.com/sh/h2kgji78o3zu9wu/AACt6__0QBk_phFjP_2_T_GZa?dl=0" target="_blank">Practice resources</a></h4>
+        </div>
+         
+        </section>
+
+        <!-- 2 SAMPLE CARDS WITH EMBEDDED YOUTUBE -->
+
+      <section class="bg-light py-5">
+        <div class="container d-lg-flex flex-wrap justify-content-around mb-5" id="youtube">
+        <h1 class="text-black text-center fw-bolder mt-5">2 Sample Cards with Embedded Youtube Videos</h1>
+       <!-- youtube cards render here -->
+        </div>
+          <div class="container card text-center col-lg-5 col-md-12 rounded bg-secondary text-white mt-5" >
+            <div class="card-body">
+              <h1 class="card-title fw-bolder">Sample Playlist</h1>
+              <p class="card-subtitle py-2">From Lent 2023</p>
+            <div class="container">
+                  <!-- plyr doesn't support playlists? -->
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=PLfitEoeF_N62WrmU7fP4X-LnEZ_2Hnt7N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPCOMING SCHEDULE -->
+
+      <section id="schedule" class="container mb-5 py-5">
+        <h1 class="text-center text-light pb-5">Upcoming Schedule</h1>
+        <div class="container">
+          <ul class="list-group col-lg-8 mx-auto" id="schedule-list-group">
+          
+           <!-- schedule data renders here -->
+
+          </ul>
+        </div>
+        <a href="https://drive.google.com/file/d/184pWLDaAFcElxuchreFMXdkMO29E0eQp/view?usp=sharing" target="_blank" class="btn btn-primary btn-lg text-white d-block my-5 w-50 mx-auto">See full schedule</a>
+      </section>
+
+        <!-- CONTACT FORM  -->
+        <section id="contact" class="bg-light pb-5">
+          <div class="container">
+            <div class="text-center py-5 text-dark">
+              <h2 class="fw-bolder text-uppercase">Contact</h2>
+              <p>Send sign outs or ask a question here.</p>
+            </div>
+            <div class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+              <form action="#contact" class="text-dark" id="contact-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" name="name">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="form-label">Subject</label>
+                  <input type="text" class="form-control" name="subject">
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea name="message" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" id="submit-btn" data-bs-toggle="modal" data-bs-target="#myModal">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <div class="modal" tabindex="-1" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title fw-bolder">Message Sent</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>We will be in touch!</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <footer class="bg-dark">
+        <div class="container text-center">
+          <p class="mb-0 py-3 fs-5 text-white">Copyright 2023 - 
+          Designed by Jeff Wood</p>
+        </div>
+      </footer>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

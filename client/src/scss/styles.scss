@@ -1,0 +1,32 @@
+// Import all of Bootstrap's CSS
+@import "~bootstrap/scss/bootstrap";
+
+// Import custom audio 'Plyr'
+@import "~plyr/dist/plyr.css";
+
+body {
+  padding-top: 80px;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+#home {
+  background-image: url('../files/images/choir-img.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+@include media-breakpoint-up(lg) {
+  .list-group-item p {
+  width: 25%;
+  }
+}
+
+.plyr-container {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
