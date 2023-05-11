@@ -1,32 +1,16 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const cors = require('cors')
 const cookie_parser = require('cookie-parser')
 const port = 3000
 
 require('dotenv').config()
-const { writeFile, readFile } = require('fs');
-const GSheetReader = require('g-sheets-api');
+const { updateRecordings, updateSchedule } = require('./utils')
 
 app.use(express.json())    
-app.use(cookie_parser(process.env.SECRET, {maxAge: 600}))  
+app.use(cookie_parser(process.env.SECRET, {maxAge: 10000}))  
 app.use(express.urlencoded({extended: true})); 
 app.use(express.static(path.join(__dirname, '../client/src/dist/')))
-app.use('admin', express.static(__dirname + '/views'))
-
-
-app.use(cors({
-  origin: 'http://localhost:8080'
-}));
-
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client', 'src', 'dist', 'index.html'))
-// })
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
-})
 
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'admin-login.html'))
@@ -50,65 +34,32 @@ app.get('/admin/updates/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'admin.html'))
   }
   else {
+    console.log('error - login unsuccessful')
     res.redirect('/admin')
   }
 })
 
-// THESE UPDATE ROUTES WORK BUT NEED UPDATING...now that I have the admin route working I should refactor these to be function that I can run from the dashboard
- 
-app.get('/update/schedule', (req, res) => {
-  // from sheet 1 of google doc
-  const options = {
-    apiKey: process.env.API_KEY,
-    sheetId: process.env.SHEET_ID,
-  }
-  
-  GSheetReader(options, results => {
-    const data = JSON.stringify(results)
-    const path = '../client/src/files/data/scheduleData.js';
-    const content = `const scheduleData = ${data} \n\nexport { scheduleData }`
-  
-    writeFile(path, content, (error) => {
-    if (error) {
-      console.log('An error has occurred ', error);
-      return;
+app.post('/admin/updates/', (req, res) => {
+  if (req.signedCookies.username == 'admin' &&
+    req.body.makeUpdate == 'schedule') {
+      updateSchedule()
+      res.send('Schedule updated')
     }
-    console.log('Data written successfully to disk');
-    });
-
-    res.send('Schedule data updated from Google Sheet')
-    }).catch(err => {
-      console.log(err)
-  });
+  else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'recordings') {
+    updateRecordings()
+    res.send('Recordings updated')
+  }
+  else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'logout') {
+    res.clearCookie('username', {maxAge: 10000})
+    res.redirect('/admin')
+  }
+  else {
+    console.log('error - data update failed')
+    res.redirect('/admin')
+  }
 })
 
-app.get('/update/recordings', (req, res) => {
-  // from sheet 2 of google doc
-  const options = {
-    apiKey: process.env.API_KEY,
-    sheetId: process.env.SHEET_ID,
-    sheetNumber: 2,
-  }
-  
-  GSheetReader(options, results => {
-    const data = JSON.stringify(results)
-    const path = '../client/src/files/data/recordingsData.js';
-    const content = `const recordingsData = ${data}\n\nexport { recordingsData }`
-  
-    writeFile(path, content, (error) => {
-    if (error) {
-      console.log('An error has occurred ', error);
-      return;
-    }
-    console.log('Data written successfully to disk');
-    });
-
-    res.send('Recordings data updated from Google sheet')
-  }).catch(err => {
-    console.log(err)
-  });
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`)
 })
-
-
-
 
