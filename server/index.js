@@ -8,18 +8,42 @@ require('dotenv').config()
 const { writeFile, readFile } = require('fs');
 const GSheetReader = require('g-sheets-api');
 
-app.use(express.json())
+app.use(express.json())      
+app.use(express.urlencoded({extended: true})); 
 app.use(express.static(path.join(__dirname, '../client/src/dist/')))
+app.use('admin', express.static(__dirname + '/views'))
+
+
 app.use(cors({
   origin: 'http://localhost:8080'
 }));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client', 'src', 'dist', 'index.html'))
-})
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../client', 'src', 'dist', 'index.html'))
+// })
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
+})
+
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'admin-login.html'))
+})
+
+app.post('/admin', (req, res) => {
+  const username = req.body.username
+  const password = req.body.password
+  if (username == process.env.ADMIN_USERNAME &&
+      password == process.env.ADMIN_PW) {
+        res.redirect('admin/updates')
+      }
+      else {
+        res.redirect('/admin')
+      }
+})
+
+app.get('/admin/updates/', (req, res) => {
+  res.send('logged in')
 })
 
 // THESE UPDATE ROUTES WORK BUT NEED UPDATING...want to make them protected so only I can do it....maybe make them post requests and require header credentials? I could eventually make an admin sign in from the front end if I want others to be able to do it...also because the vite site is rolled up it doesn't incorporate this data unless i rebuild....can i trigger a rebuild from here?
