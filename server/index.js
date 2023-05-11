@@ -2,13 +2,15 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const cors = require('cors')
+const cookie_parser = require('cookie-parser')
 const port = 3000
 
 require('dotenv').config()
 const { writeFile, readFile } = require('fs');
 const GSheetReader = require('g-sheets-api');
 
-app.use(express.json())      
+app.use(express.json())    
+app.use(cookie_parser(process.env.SECRET, {maxAge: 600}))  
 app.use(express.urlencoded({extended: true})); 
 app.use(express.static(path.join(__dirname, '../client/src/dist/')))
 app.use('admin', express.static(__dirname + '/views'))
@@ -35,7 +37,8 @@ app.post('/admin', (req, res) => {
   const password = req.body.password
   if (username == process.env.ADMIN_USERNAME &&
       password == process.env.ADMIN_PW) {
-        res.redirect('admin/updates')
+        res.cookie('username', 'admin', {signed: true})
+        res.redirect('/admin/updates')
       }
       else {
         res.redirect('/admin')
@@ -43,11 +46,16 @@ app.post('/admin', (req, res) => {
 })
 
 app.get('/admin/updates/', (req, res) => {
-  res.send('logged in')
+  if(req.signedCookies.username == 'admin') {
+    res.sendFile(path.join(__dirname, 'views', 'admin.html'))
+  }
+  else {
+    res.redirect('/admin')
+  }
 })
 
-// THESE UPDATE ROUTES WORK BUT NEED UPDATING...want to make them protected so only I can do it....maybe make them post requests and require header credentials? I could eventually make an admin sign in from the front end if I want others to be able to do it...also because the vite site is rolled up it doesn't incorporate this data unless i rebuild....can i trigger a rebuild from here?
-
+// THESE UPDATE ROUTES WORK BUT NEED UPDATING...now that I have the admin route working I should refactor these to be function that I can run from the dashboard
+ 
 app.get('/update/schedule', (req, res) => {
   // from sheet 1 of google doc
   const options = {
@@ -100,5 +108,7 @@ app.get('/update/recordings', (req, res) => {
     console.log(err)
   });
 })
+
+
 
 
