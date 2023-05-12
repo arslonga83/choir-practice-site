@@ -128,7 +128,7 @@ export function getRecordingsHtml() {
           <div class="card-body">
             <h1 class="card-title fw-bolder">${formattedDate}</h1>
             <p class="card-subtitle py-2">${item.anthem}</p>
-            <div class="plyr-container my-auto">
+            <div class="plyr-container">
               <audio class="custom-player" controls preload="none">
                 <source src="${item['anthem-src']}"/>
               </audio>

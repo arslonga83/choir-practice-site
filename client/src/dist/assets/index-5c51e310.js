@@ -82,7 +82,7 @@
           <div class="card-body">
             <h1 class="card-title fw-bolder">${s}</h1>
             <p class="card-subtitle py-2">${i.anthem}</p>
-            <div class="plyr-container my-auto">
+            <div class="plyr-container">
               <audio class="custom-player" controls preload="none">
                 <source src="${i["anthem-src"]}"/>
               </audio>
