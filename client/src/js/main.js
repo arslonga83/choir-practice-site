@@ -23,3 +23,8 @@ getRecordingsHtml()
 // render youtube recordings
 import { getYoutubeHtml } from './recordings'
 getYoutubeHtml()
+
+// render combined recordings
+import { getAllRecordingsHtml } from './recordings'
+getAllRecordingsHtml()
+
