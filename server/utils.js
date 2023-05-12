@@ -14,6 +14,7 @@ function updateSchedule() {
       const data = JSON.stringify(results)
       const path = '../client/src/files/data/scheduleData.js';
       const content = `const scheduleData = ${data} \n\nexport { scheduleData }`
+      console.log(data)
     
       writeFile(path, content, (error) => {
       if (error) {
@@ -37,6 +38,7 @@ function updateSchedule() {
       const data = JSON.stringify(results)
       const path = '../client/src/files/data/recordingsData.js';
       const content = `const recordingsData = ${data}\n\nexport { recordingsData }`
+      console.log(results)
   
       writeFile(path, content, (error) => {
       if (error) {
