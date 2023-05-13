@@ -5,11 +5,8 @@ import '../scss/styles.scss'
 import * as bootstrap from 'bootstrap'
 
 // Contact form submission
-const form = document.getElementById('contact-form')
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
-  // GET FORM DATA 
-})
+import { getFormData } from './contactForm';
+getFormData()
 
 // render schedule data
 import { getScheduleHtml } from './schedule';
