@@ -29,8 +29,9 @@ function sendMessage(data) {
   const message = {
     from: "arslongatest1@gmail.com",
     to: "arslongatest2@yahoo.com",
+    replyTo: data.email,
     subject: `Choir Message from ${data.name}`,
-    text: `${data.message}`
+    text: data.message,
   };
   
   transporter.sendMail(message)
