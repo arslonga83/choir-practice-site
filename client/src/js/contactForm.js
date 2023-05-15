@@ -1,7 +1,8 @@
+import * as bootstrap from 'bootstrap'
 
 export function getFormData() {
   const contactForm = document.getElementById('contact-form')
-  const myModal = document.getElementById('myModal')
+  const myModal = new bootstrap.Modal(document.getElementById('myModal'))
 
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -19,7 +20,7 @@ export function getFormData() {
     .then(response => response.text())
     .then(result => {
       console.log(result)
-      // myModal.modal('show')
+      myModal.show()
       })
     .catch(error => console.log('error', error));
 
