@@ -12,16 +12,18 @@ getFormData()
 import { getScheduleHtml } from './schedule';
 getScheduleHtml()
 
-//render recordings data
-import { getRecordingsHtml } from './recordings';
-getRecordingsHtml()
+// //render recordings data
+// import { getRecordingsHtml } from './recordings';
+// getRecordingsHtml()
 
 
-// render youtube recordings
-import { getYoutubeHtml } from './recordings'
-getYoutubeHtml()
+// // render youtube recordings
+// import { getYoutubeHtml } from './recordings'
+// getYoutubeHtml()
 
-// render combined recordings
-import { getAllRecordingsHtml } from './recordings'
-getAllRecordingsHtml()
+// // render combined recordings
+// import { getAllRecordingsHtml } from './recordings'
+// getAllRecordingsHtml()
 
+import { getMixedRecordingsHtml } from './recordings';
+getMixedRecordingsHtml()
