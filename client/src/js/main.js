@@ -12,18 +12,13 @@ getFormData()
 import { getScheduleHtml } from './schedule';
 getScheduleHtml()
 
-// //render recordings data
-// import { getRecordingsHtml } from './recordings';
-// getRecordingsHtml()
-
-
-// // render youtube recordings
-// import { getYoutubeHtml } from './recordings'
-// getYoutubeHtml()
-
-// // render combined recordings
-// import { getAllRecordingsHtml } from './recordings'
-// getAllRecordingsHtml()
 
 import { getMixedRecordingsHtml } from './recordings';
 getMixedRecordingsHtml()
+
+// simple fix to collapse mobile nav menu on each click
+const navLinks = document.querySelectorAll('.nav-item')
+const menuToggle = document.getElementById('navItems')
+const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false})
+navLinks.forEach((l) => {l.addEventListener('click', () => { bsCollapse.toggle() })
+})
