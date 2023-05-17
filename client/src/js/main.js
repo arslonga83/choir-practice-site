@@ -12,7 +12,6 @@ getFormData()
 import { getScheduleHtml } from './schedule';
 getScheduleHtml()
 
-
 import { getMixedRecordingsHtml } from './recordings';
 getMixedRecordingsHtml()
 
