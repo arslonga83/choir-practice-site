@@ -3,7 +3,7 @@
 
 export async function getScheduleHtml() {
 
-  const response = await fetch('http://localhost:3000/schedule')
+  const response = await fetch('/schedule')
   const scheduleData = await response.json()
 
   const scheduleListGroup = document.getElementById('schedule-list-group')
