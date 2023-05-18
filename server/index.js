@@ -15,6 +15,9 @@ app.use(cookie_parser(process.env.SECRET, {maxAge: 10000}))
 app.use(express.urlencoded({extended: true})); 
 app.use(express.static(path.join(__dirname, '../client/src/dist/')))
 
+updateSchedule()
+updateRecordings()
+
 app.post('/', (req, res) => {
   console.log(req.body)
   sendMessage(req.body)
