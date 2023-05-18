@@ -1,4 +1,4 @@
-import { recordingsData } from '../files/data/recordingsData'
+// import { recordingsData } from '../files/data/recordingsData'
 import { initializePlayers } from './customPlayers'
 
 function formatDate(givenDate) {
@@ -11,7 +11,11 @@ function formatDate(givenDate) {
   return date.toLocaleString('en-US', options)
 }
 
-  export function getMixedRecordingsHtml() {
+  export async function getMixedRecordingsHtml() {
+
+    const response = await fetch('recordings')
+    const recordingsData = await response.json()
+
     const mixedSection = document.getElementById('mixedRecordings')
     let mixedHtml = ''
     let anthemHtml = ''
