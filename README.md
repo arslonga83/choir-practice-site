@@ -9,3 +9,9 @@ Lastly, there's a simple contact form so they can easily send us questions witho
 I built the front-end using Vite and Bootstrap and a backend with ExpressJS. The data files are taken from a google spreadsheet so it is easy for our director to choose new recordings or update the schedule as needed. To avoid overusing the Google API I made an admin dashboard so I can go in and pull updated data files as needed, but we won't ping it every time a member logs in. 
 
 We will be testing this out for our 2023-2024 season and making note of what works and what could be improved. I'm hopeful this could be a a good template for other choirs as I know there is a need for something like this.
+
+# Updating the recordings and schedule data
+The admin portal can be accessed from the main site by adding '/admin'. After logging in you can follow the link to update the google spreadsheet (assuming your are logged in and have editing privilages.) 
+
+When creating new dropbox links, be sure to set the permsissions to viewer, and then change the 'dl=0' at the end of the link to 'raw=1'. This lets the browser directly pull in the source audio rather than redirecting the client to the dropbox site. 
+
