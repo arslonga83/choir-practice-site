@@ -26,8 +26,10 @@ html {
   }
 }
 
-
-
+.youtube-video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
 
 @include media-breakpoint-up(lg) {
   .list-group-item p {
