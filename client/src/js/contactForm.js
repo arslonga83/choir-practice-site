@@ -10,7 +10,7 @@ export function getFormData() {
     const entries = formData.entries()
     const data = Object.fromEntries(entries)
 
-    fetch('http://localhost:3000/', {
+    fetch('', {
     method: 'POST',
     headers: {
       'Content-Type': "application/json",
