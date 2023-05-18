@@ -1,13 +1,16 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const cors = require('cors')
 const cookie_parser = require('cookie-parser')
 const port = 3000
 
 require('dotenv').config()
+const { readFile, writeFile } = require('fs');
 const { updateRecordings, updateSchedule, sendMessage } = require('./utils')
 
-app.use(express.json())    
+app.use(express.json()) 
+app.use(cors({origin: 'http://localhost:8080'}))   
 app.use(cookie_parser(process.env.SECRET, {maxAge: 10000}))  
 app.use(express.urlencoded({extended: true})); 
 app.use(express.static(path.join(__dirname, '../client/src/dist/')))
@@ -16,6 +19,26 @@ app.post('/', (req, res) => {
   console.log(req.body)
   sendMessage(req.body)
   res.status(200).send(JSON.stringify(req.body))
+})
+
+app.get('/schedule', (req, res) => {
+  readFile('./data/scheduleData.js', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return 
+    }
+    res.send(data)
+  })
+})
+
+app.get('/recordings', (req, res) => {
+  readFile('./data/recordingsData.js', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return 
+    }
+    res.send(data)
+  })
 })
 
 

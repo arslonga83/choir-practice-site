@@ -1,6 +1,11 @@
-import { scheduleData } from '../files/data/scheduleData'
+// import { scheduleData } from '../files/data/scheduleData'
 
-export function getScheduleHtml() {
+
+export async function getScheduleHtml() {
+
+  const response = await fetch('http://localhost:3000/schedule')
+  const scheduleData = await response.json()
+
   const scheduleListGroup = document.getElementById('schedule-list-group')
   let scheduleHtml = ''
   let listLength = 0
