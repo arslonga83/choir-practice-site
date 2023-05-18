@@ -13,7 +13,7 @@ function formatDate(givenDate) {
 
   export async function getMixedRecordingsHtml() {
 
-    const response = await fetch('https://lgpc-choir-practice-site.onrender.com/recordings')
+    const response = await fetch('recordings')
     const recordingsData = await response.json()
 
     const mixedSection = document.getElementById('mixedRecordings')

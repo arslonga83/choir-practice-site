@@ -3,7 +3,7 @@
 
 export async function getScheduleHtml() {
 
-  const response = await fetch('https://lgpc-choir-practice-site.onrender.com/schedule')
+  const response = await fetch('schedule')
   const scheduleData = await response.json()
 
   const scheduleListGroup = document.getElementById('schedule-list-group')
