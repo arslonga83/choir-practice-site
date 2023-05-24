@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const cors = require('cors')
+const morgan = require('morgan')
 const cookie_parser = require('cookie-parser')
 const port = 3000
 
@@ -10,6 +11,7 @@ const { readFile, writeFile } = require('fs');
 const { updateRecordings, updateSchedule, sendMessage } = require('./utils')
 
 app.use(express.json()) 
+app.use(morgan('combined'))
 app.use(cors({origin: 'http://localhost:8080'}))   
 app.use(cookie_parser(process.env.SECRET, {maxAge: 10000}))  
 app.use(express.urlencoded({extended: true})); 
