@@ -27,8 +27,8 @@ transporter.verify(function (error, success) {
 function sendMessage(data) {
   console.log(data)
   const message = {
-    from: "arslongatest1@gmail.com",
-    to: "arslongatest1@gmail.com",
+    from: "lgpcchoircontact@gmail.com",
+    to: "lgpcchoircontact@gmail.com",
     replyTo: data.email,
     subject: `Choir Message from ${data.name}`,
     text: data.message,
