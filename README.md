@@ -13,5 +13,5 @@ We will be testing this out for our 2023-2024 season and making note of what wor
 # Updating the recordings and schedule data
 The admin portal can be accessed from the main site by adding '/admin'. After logging in you can follow the link to update the google spreadsheet (assuming your are logged in and have editing privilages.) 
 
-When creating new dropbox links, be sure to set the permsissions to viewer, and then change the 'dl=0' at the end of the link to 'raw=1'. This lets the browser directly pull in the source audio rather than redirecting the client to the dropbox site. 
+When creating new dropbox links, be sure to set the permissions to viewer, and then change the 'dl=0' at the end of the link to 'raw=1'. This lets the browser directly pull in the source audio rather than redirecting the client to the dropbox site. 
 
