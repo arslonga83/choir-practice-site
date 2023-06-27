@@ -22,6 +22,12 @@ function formatDate(givenDate) {
     let offertoryHtml = ''
 
     for (let item of recordingsData) {
+      // skip dates that have passed
+      let date = new Date(Date.parse(item.date))
+      if (date <= (Date.now() - (3600 * 1000 * 24))) {
+        continue
+      }
+
       let formattedDate = formatDate(item.date)
 
       if (item['anthem-type'] == 'youtube') {
