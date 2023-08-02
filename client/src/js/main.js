@@ -5,8 +5,8 @@ import '../scss/styles.scss'
 import * as bootstrap from 'bootstrap'
 
 // Contact form submission
-import { getFormData } from './contactForm';
-getFormData()
+// import { getFormData } from './contactForm';
+// getFormData()
 
 // render schedule data
 import { getScheduleHtml } from './schedule';
