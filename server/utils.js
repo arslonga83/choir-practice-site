@@ -2,41 +2,6 @@
 const GSheetReader = require('g-sheets-api');
 require('dotenv').config()
 const { readFile, writeFile } = require('fs');
-const nodemailer = require('nodemailer')
-
-let transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // upgrade later with STARTTLS
-  requireTLS: true,
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
-
-// verify connection configuration
-transporter.verify(function (error, success) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Server is ready to take our messages");
-  }
-});
-
-function sendMessage(data) {
-  console.log(data)
-  const message = {
-    from: "lgpcchoircontact@gmail.com",
-    to: "lgpcchoircontact@gmail.com",
-    replyTo: data.email,
-    subject: `Choir Message from ${data.name}`,
-    text: data.message,
-  };
-  
-  transporter.sendMail(message)
-}
-
 
 function updateSchedule() {
   // from sheet 1 of google doc
@@ -84,6 +49,54 @@ function updateSchedule() {
       });
     });
   }
+
+  function updateLinks() {
+    
+      const options = {
+      apiKey: process.env.API_KEY,
+      sheetId: process.env.SHEET_ID,
+      sheetNumber: 3,
+      }
+    
+      GSheetReader(options, results => {
+        const data = JSON.stringify(results)
+        const path = './data/linksData.js';
+        const content = data
+        console.log(data)
+      
+        writeFile(path, content, (error) => {
+        if (error) {
+          console.log('An error has occurred ', error);
+          return;
+        }
+        console.log('Data written successfully to disk');
+        });
+      });
+    }
+
+    function updateScheduleLinks() {
+      
+        const options = {
+        apiKey: process.env.API_KEY,
+        sheetId: process.env.SHEET_ID,
+        sheetNumber: 4,
+        }
+      
+        GSheetReader(options, results => {
+          const data = JSON.stringify(results)
+          const path = './data/scheduleLinksData.js';
+          const content = data
+          console.log(data)
+        
+          writeFile(path, content, (error) => {
+          if (error) {
+            console.log('An error has occurred ', error);
+            return;
+          }
+          console.log('Data written successfully to disk');
+          });
+        });
+      }
   
-module.exports = { updateSchedule, updateRecordings, sendMessage }
+module.exports = { updateSchedule, updateRecordings, updateLinks, updateScheduleLinks }
   

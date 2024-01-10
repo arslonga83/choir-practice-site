@@ -8,7 +8,7 @@ const port = 3000
 
 require('dotenv').config()
 const { readFile, writeFile } = require('fs');
-const { updateRecordings, updateSchedule, sendMessage } = require('./utils')
+const { updateRecordings, updateSchedule, updateLinks,updateScheduleLinks } = require('./utils')
 
 app.use(express.json()) 
 app.use(morgan('combined'))
@@ -19,6 +19,8 @@ app.use(express.static(path.join(__dirname, '../client/src/dist/')))
 
 updateSchedule()
 updateRecordings()
+updateLinks()
+updateScheduleLinks()
 
 app.post('/', (req, res) => {
   console.log(req.body)
@@ -38,6 +40,26 @@ app.get('/schedule', (req, res) => {
 
 app.get('/recordings', (req, res) => {
   readFile('./data/recordingsData.js', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return 
+    }
+    res.send(data)
+  })
+})
+
+app.get('/links', (req, res) => {
+  readFile('./data/linksData.js', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return 
+    }
+    res.send(data)
+  })
+})
+
+app.get('/scheduleLinks', (req, res) => {
+  readFile('./data/scheduleLinksData.js', 'utf8', (err, data) => {
     if (err) {
       console.log(err)
       return 
