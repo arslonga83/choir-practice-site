@@ -47,6 +47,16 @@ app.get('/recordings', (req, res) => {
   })
 })
 
+app.get('/links', (req, res) => {
+  readFile('./data/linksData.js', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return 
+    }
+    res.send(data)
+  })
+})
+
 
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'admin-login.html'))
