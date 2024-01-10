@@ -8,7 +8,7 @@ const port = 3000
 
 require('dotenv').config()
 const { readFile, writeFile } = require('fs');
-const { updateRecordings, updateSchedule, updateLinks,updateScheduleLinks, sendMessage } = require('./utils')
+const { updateRecordings, updateSchedule, updateLinks,updateScheduleLinks } = require('./utils')
 
 app.use(express.json()) 
 app.use(morgan('combined'))
