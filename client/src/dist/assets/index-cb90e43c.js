@@ -76,4 +76,6 @@
             </div>
           </div>`}i.innerHTML+=s,id()}async function rd(){const e=await(await fetch("links")).json(),i=document.getElementById("links");let s="";for(let n of e)s+=`
       <a href="${n.Link}" class="btn btn-primary btn-lg text-white d-block mb-5 w-50 mx-auto" target="_blank">${n.Title}</a>
-      `;i.innerHTML=s}Xu();nd();rd();
+      `;i.innerHTML=s}async function od(){const e=await(await fetch("scheduleLinks")).json(),i=document.getElementById("scheduleLinks");let s="";for(let n of e)s+=`
+      <a href="${n.Link}" class="btn btn-primary btn-lg text-white d-block mb-5 w-50 mx-auto" target="_blank">${n.Title}</a>
+      `;i.innerHTML+=s}Xu();nd();rd();od();

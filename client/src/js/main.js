@@ -18,6 +18,9 @@ getMixedRecordingsHtml()
 import { getLinksHtml } from './links';
 getLinksHtml() 
 
+import { getScheduleLinksHtml } from './scheduleLinks';
+getScheduleLinksHtml() 
+
 // simple fix to collapse mobile nav menu on each click
 // const navLinks = document.querySelectorAll('.nav-item')
 // const menuToggle = document.getElementById('navItems')

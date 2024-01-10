@@ -86,7 +86,7 @@ function updateSchedule() {
   }
 
   function updateLinks() {
-    // from sheet 1 of google doc
+    
       const options = {
       apiKey: process.env.API_KEY,
       sheetId: process.env.SHEET_ID,
@@ -108,6 +108,30 @@ function updateSchedule() {
         });
       });
     }
+
+    function updateScheduleLinks() {
+      
+        const options = {
+        apiKey: process.env.API_KEY,
+        sheetId: process.env.SHEET_ID,
+        sheetNumber: 4,
+        }
+      
+        GSheetReader(options, results => {
+          const data = JSON.stringify(results)
+          const path = './data/scheduleLinksData.js';
+          const content = data
+          console.log(data)
+        
+          writeFile(path, content, (error) => {
+          if (error) {
+            console.log('An error has occurred ', error);
+            return;
+          }
+          console.log('Data written successfully to disk');
+          });
+        });
+      }
   
-module.exports = { updateSchedule, updateRecordings, updateLinks, sendMessage }
+module.exports = { updateSchedule, updateRecordings, updateLinks, updateScheduleLinks, sendMessage }
   
