@@ -106,6 +106,14 @@ app.post('/admin/updates/', (req, res) => {
     updateRecordings()
     res.send('Recordings updated')
   }
+  else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'links') {
+    updateLinks()
+    res.send('Links updated')
+  }
+  else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'scheduleLinks') {
+    updateScheduleLinks()
+    res.send('Schedule Links updated')
+  }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'logout') {
     res.clearCookie('username', {maxAge: 10000})
     res.redirect('/admin')
