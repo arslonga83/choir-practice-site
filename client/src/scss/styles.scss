@@ -18,6 +18,11 @@ html {
   background-position: center;
 }
 
+// technique to hide email address from bots
+span.email b {
+	display: none;
+}
+
 @include media-breakpoint-up(md) {
   #home {
     background-image: url('../files/images/choir-img.jpg');
