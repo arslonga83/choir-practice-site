@@ -2,6 +2,14 @@ const path = require('path')
 
 export default {
   root: path.resolve(__dirname, 'src'),
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'src/index.html'),
+        sub: path.resolve(__dirname, 'src/new.html'),
+      },
+    },
+  },
   assetsInclude: ['**/*.mp3'],
   resolve: {
     alias: {
