@@ -7,6 +7,7 @@ export default {
       input: {
         main: path.resolve(__dirname, 'src/index.html'),
         sub: path.resolve(__dirname, 'src/new.html'),
+        sub: path.resolve(__dirname, 'src/practice.html'),
       },
     },
   },
