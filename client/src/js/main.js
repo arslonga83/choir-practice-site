@@ -16,3 +16,6 @@ getLinksHtml()
 
 import { getScheduleLinksHtml } from './scheduleLinks';
 getScheduleLinksHtml() 
+
+import { getPracticeTracksHtml } from './practiceTracks';
+getPracticeTracksHtml()
