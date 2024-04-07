@@ -97,6 +97,30 @@ function updateSchedule() {
           });
         });
       }
+
+      function updatePracticeTracks() {
+        // from sheet 5 of google doc
+        const options = {
+          apiKey: process.env.API_KEY,
+          sheetId: process.env.SHEET_ID,
+          sheetNumber: 5,
+        }
+      
+        GSheetReader(options, results => {
+          const data = JSON.stringify(results)
+          const path = './data/practiceTracks].js';
+          const content = data
+          console.log(results)
+      
+          writeFile(path, content, (error) => {
+          if (error) {
+            console.log('An error has occurred ', error);
+            return;
+          }
+          console.log('Data written successfully to disk');
+          });
+        });
+      }
   
-module.exports = { updateSchedule, updateRecordings, updateLinks, updateScheduleLinks }
+module.exports = { updateSchedule, updateRecordings, updateLinks, updateScheduleLinks, updatePracticeTracks }
   

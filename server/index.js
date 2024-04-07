@@ -21,6 +21,7 @@ updateSchedule()
 updateRecordings()
 updateLinks()
 updateScheduleLinks()
+updatePracticeTracks()
 
 app.post('/', (req, res) => {
   console.log(req.body)
@@ -113,6 +114,10 @@ app.post('/admin/updates/', (req, res) => {
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'scheduleLinks') {
     updateScheduleLinks()
     res.send('Schedule Links updated')
+  }
+  else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'practiceTracks') {
+    updatePracticeTracks()
+    res.send('Practice Tracks updated')
   }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'logout') {
     res.clearCookie('username', {maxAge: 10000})
