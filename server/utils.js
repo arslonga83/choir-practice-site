@@ -108,7 +108,7 @@ function updateSchedule() {
       
         GSheetReader(options, results => {
           const data = JSON.stringify(results)
-          const path = './data/practiceTracks].js';
+          const path = './data/practiceTracksData.js';
           const content = data
           console.log(results)
       
