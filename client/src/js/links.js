@@ -1,3 +1,5 @@
+getLinksHtml()
+
 export async function getLinksHtml() {
 
   const response = await fetch('links')

@@ -1,6 +1,8 @@
 import { initializePlayers } from './customPlayers'
 
-  export async function getPracticeTracksHtml() {
+getPracticeTracksHtml()  
+
+export async function getPracticeTracksHtml() {
 
     const response = await fetch('practiceTracks')
     const recordingsData = await response.json()
@@ -113,7 +115,6 @@ import { initializePlayers } from './customPlayers'
         `
       }
      
-      
         practiceTracksHtml += ` 
           <div class="card text-center col-lg-5 col-md-12 rounded bg-dark text-white mt-5" >
             <div class="card-body">
@@ -128,9 +129,6 @@ import { initializePlayers } from './customPlayers'
             ${item['track7-title'] ? `${track7Html}` : ``}
             ${item['track8-title'] ? `${track8Html}` : ``}
             ${item['track9-title'] ? `${track9Html}` : ``}
-            
-         
-            
             
             </div>
           </div>`
