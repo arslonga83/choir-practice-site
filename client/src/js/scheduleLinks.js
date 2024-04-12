@@ -1,3 +1,5 @@
+getScheduleLinksHtml()
+
 export async function getScheduleLinksHtml() {
 
   const response = await fetch('scheduleLinks')

@@ -6,7 +6,9 @@ export default {
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'src/index.html'),
-        sub: path.resolve(__dirname, 'src/new.html'),
+        new: path.resolve(__dirname, 'src/new.html'),
+        practice: path.resolve(__dirname, 'src/practice.html'),
+        rehearsals: path.resolve(__dirname, 'src/rehearsals.html'),
       },
     },
   },

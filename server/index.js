@@ -8,7 +8,7 @@ const port = 3000
 
 require('dotenv').config()
 const { readFile, writeFile } = require('fs');
-const { updateRecordings, updateSchedule, updateLinks,updateScheduleLinks } = require('./utils')
+const { updateRecordings, updateSchedule, updateLinks,updateScheduleLinks, updatePracticeTracks } = require('./utils')
 
 app.use(express.json()) 
 app.use(morgan('combined'))
@@ -21,6 +21,7 @@ updateSchedule()
 updateRecordings()
 updateLinks()
 updateScheduleLinks()
+updatePracticeTracks()
 
 app.post('/', (req, res) => {
   console.log(req.body)
@@ -60,6 +61,16 @@ app.get('/links', (req, res) => {
 
 app.get('/scheduleLinks', (req, res) => {
   readFile('./data/scheduleLinksData.js', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return 
+    }
+    res.send(data)
+  })
+})
+
+app.get('/practiceTracks', (req, res) => {
+  readFile('./data/practiceTracksData.js', 'utf8', (err, data) => {
     if (err) {
       console.log(err)
       return 
@@ -113,6 +124,10 @@ app.post('/admin/updates/', (req, res) => {
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'scheduleLinks') {
     updateScheduleLinks()
     res.send('Schedule Links updated')
+  }
+  else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'practiceTracks') {
+    updatePracticeTracks()
+    res.send('Practice Tracks updated')
   }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'logout') {
     res.clearCookie('username', {maxAge: 10000})

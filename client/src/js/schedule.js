@@ -1,3 +1,4 @@
+getScheduleHtml()
 
 export async function getScheduleHtml() {
 
