@@ -14,5 +14,5 @@ We will be testing this out for our 2023-2024 season and making note of what wor
 The admin portal can be accessed from the main site by adding '/admin'. After logging in you can follow the link to update the google spreadsheet (assuming your are logged in and have editing privilages.) 
 
 When creating new dropbox links, be sure to set the permissions to viewer, and then change the 'dl=0' at the end of the link to 'raw=1'. This lets the browser directly pull in the source audio rather than redirecting the client to the dropbox site. 
-** May 4 Dropbox links stopped working so I moved the files to OneDrive....to create the links, take the first part of the embed link (through the end of the unique id), and change "embed" to "download". **
+** May 4 Dropbox links stopped working ...the fix was to also change the first part of the url to "dl.dropboxusercontent.com" ...I hope to update things over the summer and will consider hosting the audio files somewhere else. **
 
