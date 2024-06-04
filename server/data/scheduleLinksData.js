@@ -1,1 +1,1 @@
-[{"Title":"2024-2025 Season Schedule!","Link":"https://docs.google.com/spreadsheets/d/13qUF2T3l0WgWD-PkQ1_ZAvA_R2C8Uq8jIodwKpiwRb8/edit?usp=sharing"},{"Title":"Spring 2024","Link":"https://docs.google.com/spreadsheets/d/1zn5h3eGl-sJfbET0cylgBu3IbClXGGgFW55QqojeoM4/edit?usp=sharing"}]
+[{"Title":"2024-2025 Season Schedule!","Link":"https://docs.google.com/spreadsheets/d/13qUF2T3l0WgWD-PkQ1_ZAvA_R2C8Uq8jIodwKpiwRb8/edit?usp=sharing"}]
