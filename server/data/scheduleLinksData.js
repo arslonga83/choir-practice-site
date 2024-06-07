@@ -1,1 +1,1 @@
-[{"Title":"2024-2025 Season Schedule!","Link":"https://docs.google.com/spreadsheets/d/13qUF2T3l0WgWD-PkQ1_ZAvA_R2C8Uq8jIodwKpiwRb8/edit?usp=sharing"}]
+[{"Title":"2024-2025 Season Schedule!","Link":"https://docs.google.com/spreadsheets/d/13qUF2T3l0WgWD-PkQ1_ZAvA_R2C8Uq8jIodwKpiwRb8/edit?usp=sharing"},{"Title":"2024-2025 Registration Form","Link":"https://docs.google.com/forms/d/e/1FAIpQLSeStPMFTPZg0oLiIX1I3h7Vu14eDHKIavyeYoI8I43A3GhkgA/viewform"}]
