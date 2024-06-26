@@ -17,11 +17,12 @@ app.use(cookie_parser(process.env.SECRET, {maxAge: 10000}))
 app.use(express.urlencoded({extended: true})); 
 app.use(express.static(path.join(__dirname, '../client/src/dist/')))
 
-updateSchedule()
-updateRecordings()
-updateLinks()
-updateScheduleLinks()
-updatePracticeTracks()
+// UNCOMMENT THESE TO UPDATE DATA WHEN SERVER RESTARTS
+// updateSchedule()
+// updateRecordings()
+// updateLinks()
+// updateScheduleLinks()
+// updatePracticeTracks()
 
 app.post('/', (req, res) => {
   console.log(req.body)
@@ -111,23 +112,23 @@ app.post('/admin/updates/', (req, res) => {
   if (req.signedCookies.username == 'admin' &&
     req.body.makeUpdate == 'schedule') {
       updateSchedule()
-      res.send('Schedule updated')
+      res.redirect('/admin/success')
     }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'recordings') {
     updateRecordings()
-    res.send('Recordings updated')
+    res.redirect('/admin/success')
   }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'links') {
     updateLinks()
-    res.send('Links updated')
+    res.redirect('/admin/success')
   }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'scheduleLinks') {
     updateScheduleLinks()
-    res.send('Schedule Links updated')
+    res.redirect('/admin/success')
   }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'practiceTracks') {
     updatePracticeTracks()
-    res.send('Practice Tracks updated')
+    res.redirect('/admin/success')
   }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'logout') {
     res.clearCookie('username', {maxAge: 10000})
@@ -135,8 +136,16 @@ app.post('/admin/updates/', (req, res) => {
   }
   else {
     console.log('error - data update failed')
-    res.redirect('/admin')
+    res.redirect('/admin/fail')
   }
+})
+
+app.get('/admin/success', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'success.html'))
+})
+
+app.get('/admin/fail', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'fail.html'))
 })
 
 app.listen(port, () => {
