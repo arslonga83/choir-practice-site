@@ -8,6 +8,7 @@ function updateSchedule() {
     const options = {
     apiKey: process.env.API_KEY,
     sheetId: process.env.SHEET_ID,
+    sheetName: 'schedule'
     }
   
     GSheetReader(options, results => {
@@ -31,7 +32,7 @@ function updateSchedule() {
     const options = {
       apiKey: process.env.API_KEY,
       sheetId: process.env.SHEET_ID,
-      sheetNumber: 2,
+      sheetName: 'recordings',
     }
   
     GSheetReader(options, results => {
@@ -55,7 +56,7 @@ function updateSchedule() {
       const options = {
       apiKey: process.env.API_KEY,
       sheetId: process.env.SHEET_ID,
-      sheetNumber: 3,
+      sheetName: 'links',
       }
     
       GSheetReader(options, results => {
@@ -79,7 +80,7 @@ function updateSchedule() {
         const options = {
         apiKey: process.env.API_KEY,
         sheetId: process.env.SHEET_ID,
-        sheetNumber: 4,
+        sheetName: 'scheduleLinks',
         }
       
         GSheetReader(options, results => {
@@ -103,7 +104,7 @@ function updateSchedule() {
         const options = {
           apiKey: process.env.API_KEY,
           sheetId: process.env.SHEET_ID,
-          sheetNumber: 5,
+          sheetName: 'practiceTracks',
         }
       
         GSheetReader(options, results => {
@@ -118,7 +119,9 @@ function updateSchedule() {
             return;
           }
           console.log('Data written successfully to disk');
-          });
+          })
+        }).catch((err) => {
+          console.log(err)
         });
       }
   
