@@ -18,11 +18,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client/src/dist/')))
 
 // UNCOMMENT THESE TO UPDATE DATA WHEN SERVER RESTARTS
-updateSchedule()
-updateRecordings()
-updateLinks()
-updateScheduleLinks()
-updatePracticeTracks()
+// updateSchedule()
+// updateRecordings()
+// updateLinks()
+// updateScheduleLinks()
+// updatePracticeTracks()
 
 app.post('/', (req, res) => {
   console.log(req.body)
@@ -146,6 +146,10 @@ app.get('/admin/success', (req, res) => {
 
 app.get('/admin/fail', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'fail.html'))
+})
+
+app.get('/health', (req, res) => {
+  res.status(200).send('Ok')
 })
 
 app.listen(port, () => {
