@@ -115,7 +115,7 @@ export async function getMixedRecordingsHtml() {
       }
       
         mixedHtml += ` 
-          <div class="card text-center col-lg-5 col-md-12 rounded bg-secondary text-white mt-5" >
+          <div class="card text-center col-lg-5 col-md-12 rounded bg-primary text-white mt-5" >
             <div class="card-body">
             <h1 class="card-title fw-bolder">${formattedDate}</h1>
             ${item.anthem ? `
