@@ -1,4 +1,4 @@
-import"./main-5dc74a43.js";import{i as u}from"./customPlayers-b2c5c59d.js";$();async function $(){const p=await(await fetch("practiceTracks")).json(),k=document.getElementById("practiceTracks");let c="";for(let t of p){let a="",l="",r="",s="",i="",e="",o="",d="",n="";t["track1-title"]&&(a=`
+import"./main-b0e50acb.js";import{i as u}from"./customPlayers-b2c5c59d.js";$();async function $(){const p=await(await fetch("practiceTracks")).json(),k=document.getElementById("practiceTracks");let c="";for(let t of p){let a="",l="",r="",s="",i="",e="",o="",d="",n="";t["track1-title"]&&(a=`
         <p class="card-subtitle py-3 fs-5 fw-bold">${t["track1-title"]}</p>
         <div class="plyr-container">
         <audio class="custom-player" controls preload="none">
