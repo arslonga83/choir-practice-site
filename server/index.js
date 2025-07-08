@@ -18,11 +18,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client/src/dist/')))
 
 // UNCOMMENT THESE TO UPDATE DATA WHEN SERVER RESTARTS
-updateSchedule()
-updateRecordings()
-updateLinks()
-updateScheduleLinks()
-updatePracticeTracks()
+// updateSchedule()
+// updateRecordings()
+// updateLinks()
+// updateScheduleLinks()
+// updatePracticeTracks()
 
 app.post('/', (req, res) => {
   console.log(req.body)
