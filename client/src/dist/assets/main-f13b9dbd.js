@@ -1,36 +1,36 @@
-import"./main-b0e50acb.js";import{i as m}from"./customPlayers-b2c5c59d.js";function g(l){let s=new Date(Date.parse(l));const n={weekday:"long",month:"long",day:"numeric"};return s.toLocaleString("en-US",n)}u();async function u(){const s=await(await fetch("recordings")).json(),n=document.getElementById("mixedRecordings");let t="";for(let e of s){let o="",a="",c="",i="",r="";if(new Date(Date.parse(e.date))<=Date.now()-3600*1e3*24)continue;let d=g(e.date);e.song1&&(o=`
+import"./main-b0e50acb.js";import{i as m}from"./customPlayers-b2c5c59d.js";function g(l){let s=new Date(Date.parse(l));const n={weekday:"long",month:"long",day:"numeric"};return s.toLocaleString("en-US",n)}u();async function u(){const s=await(await fetch("recordings")).json(),n=document.getElementById("mixedRecordings");let t="";for(let e of s){let o="",a="",i="",c="",r="";if(new Date(Date.parse(e.date))<=Date.now()-3600*1e3*24)continue;let d=g(e.date);e.song1&&(o=`
         <p class="card-subtitle py-3 fs-5 fw-bold">${e.song1}</p>
         <div class="plyr-container">
         <audio class="custom-player" controls preload="none">
-          <source src="${e["song1-src"]}"/>
+          <source src="${e["song1-link"]}"/>
         </audio>
         </div>
         `),e.song2&&(a=`
         <p class="card-subtitle py-3 fs-5 fw-bold">${e.song2}</p>
         <div class="plyr-container">
         <audio class="custom-player" controls preload="none">
-          <source src="${e["song2-src"]}"/>
+          <source src="${e["song2-link"]}"/>
         </audio>
         </div>
-        `),e.song3&&(c=`
+        `),e.song3&&(i=`
         <p class="card-subtitle py-3 fs-5 fw-bold">${e.song3}</p>
         <div class="plyr-container">
         <audio class="custom-player" controls preload="none">
-          <source src="${e["song3-src"]}"/>
+          <source src="${e["song3-link"]}"/>
         </audio>
         </div>
-        `),e.song4&&(i=`
+        `),e.song4&&(c=`
         <p class="card-subtitle py-3 fs-5 fw-bold">${e.song4}</p>
         <div class="plyr-container">
         <audio class="custom-player" controls preload="none">
-          <source src="${e["song4-src"]}"/>
+          <source src="${e["song4-link"]}"/>
         </audio>
         </div>
         `),e.song5&&(r=`
         <p class="card-subtitle py-3 fs-5 fw-bold">${e.song5}</p>
         <div class="plyr-container">
         <audio class="custom-player" controls preload="none">
-          <source src="${e["song5-src"]}"/>
+          <source src="${e["song5-link"]}"/>
         </audio>
         </div>
         `),t+=` 
@@ -40,8 +40,8 @@ import"./main-b0e50acb.js";import{i as m}from"./customPlayers-b2c5c59d.js";funct
            
             ${e.song1?`${o}`:""}
             ${e.song2?`${a}`:""}
-            ${e.song3?`${c}`:""}
-            ${e.song4?`${i}`:""}
+            ${e.song3?`${i}`:""}
+            ${e.song4?`${c}`:""}
             ${e.song5?`${r}`:""}
             </div>
           </div>`}n.innerHTML+=t,m()}p();async function p(){const s=await(await fetch("schedule")).json(),n=document.getElementById("schedule-list-group");let t="",e=0;for(let o of s)new Date(Date.parse(o.date))>=Date.now()-3600*1e3*24&&e<=9&&(t+=`
