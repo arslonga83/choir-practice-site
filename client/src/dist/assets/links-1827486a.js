@@ -1,4 +1,4 @@
-import"./main-b0e50acb.js";import{i as m}from"./customPlayers-b2c5c59d.js";function g(l){let s=new Date(Date.parse(l));const n={weekday:"long",month:"long",day:"numeric"};return s.toLocaleString("en-US",n)}u();async function u(){const s=await(await fetch("recordings")).json(),n=document.getElementById("mixedRecordings");let t="";for(let e of s){let o="",a="",i="",c="",r="";if(new Date(Date.parse(e.date))<=Date.now()-3600*1e3*24)continue;let d=g(e.date);e.song1&&(o=`
+import{i as m}from"./customPlayers-b2c5c59d.js";function g(l){let s=new Date(Date.parse(l));const n={weekday:"long",month:"long",day:"numeric"};return s.toLocaleString("en-US",n)}u();async function u(){const s=await(await fetch("recordings")).json(),n=document.getElementById("mixedRecordings");let t="";for(let e of s){let o="",a="",i="",c="",r="";if(new Date(Date.parse(e.date))<=Date.now()-3600*1e3*24)continue;let d=g(e.date);e.song1&&(o=`
         <p class="card-subtitle py-3 fs-5 fw-bold">${e.song1}</p>
         <div class="plyr-container">
         <audio class="custom-player" controls preload="none">
