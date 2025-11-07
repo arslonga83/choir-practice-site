@@ -9,9 +9,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>Music Mission 2026</title>
-    <script type="module" crossorigin src="/assets/main-b0e50acb.js"></script>
-    <script type="module" crossorigin src="/assets/customPlayers-b2c5c59d.js"></script>
-    <script type="module" crossorigin src="/assets/links-1827486a.js"></script>
+    <script type="module" crossorigin src="/assets/mission-f0ee2313.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/main-b0e50acb.js">
+    <link rel="modulepreload" crossorigin href="/assets/customPlayers-b2c5c59d.js">
+    <link rel="modulepreload" crossorigin href="/assets/links-1827486a.js">
     <link rel="stylesheet" href="/assets/main-429795db.css">
   </head>
   <body class="bg-dark pt-3 mt-5" data-bs-spy="scroll" data-bs-target="#navList">
@@ -82,11 +83,26 @@
           </div>
         </section>
 
+         <div class="container card text-center col-lg-5 col-md-12 rounded bg-dark text-white mt-5 mb-5" >
+            <div class="card-body">
+              <h1 class="card-title fw-bolder">YouTube Playlist</h1>
+              <p class="card-subtitle py-2">Wendy's Favorite Recordings
+              </p>
+             
+            <div class="container">
+                  <!-- plyr doesn't support playlists -->
+              <iframe class="youtube-video" src="https://www.youtube.com/embed/videoseries?si=kYVSqQxf_tcUhZF5&amp;list=PLfitEoeF_N63RDdnMP-HsCeXnRJbS258Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+
+          </div>
+        </div>
+
     
 
         <!-- MIXED SECTION -->
         <section id="recordings" class="bg-danger py-5">
-          <div class="container d-lg-flex flex-wrap justify-content-around mb-5 mt-5" id="Recordings">
+          <div class="container d-lg-flex flex-wrap justify-content-around mb-5 mt-5" id="missionTracks">
             <h1 class="text-black text-center fw-bolder col-12">Recordings</h1>
 <!--            
               <div class="card text-center col-lg-5 col-md-12 rounded bg-primary text-white mt-5" >
@@ -112,25 +128,17 @@
 
             </div>
           </div>
+         
+          <!-- Recordings cards render here -->
+          
+         
+        </div>
+        </section>
 
 
             <!-- Recordings cards render here -->
           </div>
-          <div class="container card text-center col-lg-5 col-md-12 rounded bg-dark text-white mt-5" >
-            <div class="card-body">
-              <!-- YOUTUBE PLAYLIST REMOVED FOR SUMMER -->
-              <h1 class="card-title fw-bolder">YouTube Playlist</h1>
-              <p class="card-subtitle py-2">Wendy's Favorite Recordings
-              </p>
-             
-            <div class="container">
-                  <!-- plyr doesn't support playlists -->
-              <iframe class="youtube-video" src="https://www.youtube.com/embed/videoseries?si=kYVSqQxf_tcUhZF5&amp;list=PLfitEoeF_N63RDdnMP-HsCeXnRJbS258Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-
-
-          </div>
-        </div>
+         
         </section>
 
        
@@ -143,6 +151,7 @@
         </div>
       </footer>
 
+    
     
     
     
