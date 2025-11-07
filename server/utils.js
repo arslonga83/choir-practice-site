@@ -124,6 +124,32 @@ function updateSchedule() {
           console.log(err)
         });
       }
+
+            function updateMissionTracks() {
+        // from sheet 6 of google doc
+        const options = {
+          apiKey: process.env.API_KEY,
+          sheetId: process.env.SHEET_ID,
+          sheetName: 'missionTracks',
+        }
+      
+        GSheetReader(options, results => {
+          const data = JSON.stringify(results)
+          const path = './data/missionTracksData.js';
+          const content = data
+          console.log(results)
+      
+          writeFile(path, content, (error) => {
+          if (error) {
+            console.log('An error has occurred ', error);
+            return;
+          }
+          console.log('Data written successfully to disk');
+          })
+        }).catch((err) => {
+          console.log(err)
+        });
+      }
   
-module.exports = { updateSchedule, updateRecordings, updateLinks, updateScheduleLinks, updatePracticeTracks }
+module.exports = { updateSchedule, updateRecordings, updateLinks, updateScheduleLinks, updatePracticeTracks, updateMissionTracks }
   

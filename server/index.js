@@ -8,7 +8,7 @@ const port = 3000
 
 require('dotenv').config()
 const { readFile, writeFile } = require('fs');
-const { updateRecordings, updateSchedule, updateLinks,updateScheduleLinks, updatePracticeTracks } = require('./utils')
+const { updateRecordings, updateSchedule, updateLinks,updateScheduleLinks, updatePracticeTracks, updateMissionTracks } = require('./utils')
 
 app.use(express.json()) 
 app.use(morgan('combined'))
@@ -23,6 +23,7 @@ updateRecordings()
 updateLinks()
 updateScheduleLinks()
 updatePracticeTracks()
+updateMissionTracks()
 
 app.post('/', (req, res) => {
   console.log(req.body)
@@ -72,6 +73,16 @@ app.get('/scheduleLinks', (req, res) => {
 
 app.get('/practiceTracks', (req, res) => {
   readFile('./data/practiceTracksData.js', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return 
+    }
+    res.send(data)
+  })
+})
+
+app.get('/missionTracks', (req, res) => {
+  readFile('./data/missionTracksData.js', 'utf8', (err, data) => {
     if (err) {
       console.log(err)
       return 
