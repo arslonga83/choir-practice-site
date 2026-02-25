@@ -141,6 +141,10 @@ app.post('/admin/updates/', (req, res) => {
     updatePracticeTracks()
     res.redirect('/admin/success')
   }
+    else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'missionTracks') {
+    updateMissionTracks()
+    res.redirect('/admin/success')
+  }
   else if (req.signedCookies.username == 'admin' && req.body.makeUpdate == 'logout') {
     res.clearCookie('username', {maxAge: 10000})
     res.redirect('/admin')
