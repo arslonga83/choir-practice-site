@@ -81,15 +81,15 @@ app.get('/practiceTracks', (req, res) => {
   })
 })
 
-app.get('/missionTracks', (req, res) => {
-  readFile('./data/missionTracksData.js', 'utf8', (err, data) => {
-    if (err) {
-      console.log(err)
-      return 
-    }
-    res.send(data)
-  })
-})
+// app.get('/missionTracks', (req, res) => {
+//   readFile('./data/missionTracksData.js', 'utf8', (err, data) => {
+//     if (err) {
+//       console.log(err)
+//       return 
+//     }
+//     res.send(data)
+//   })
+// })
 
 
 app.get('/admin', (req, res) => {
